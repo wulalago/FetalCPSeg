@@ -1,1 +1,1 @@
-# FetalCPSeg
+# Fetal Cortical Plate Segmentation.
