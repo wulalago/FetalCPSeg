@@ -79,17 +79,18 @@ class Attention(nn.Module):
     def __init__(self, in_chan, out_chan):
         super(Attention, self).__init__()
         self.mix1 = MixBlock(in_chan, out_chan)
+        self.conv1 = nn.Conv3d(out_chan, out_chan, kernel_size=1)
         self.mix2 = MixBlock(out_chan, out_chan)
-        self.conv = nn.Conv3d(out_chan, out_chan, kernel_size=1)
+        self.conv2 = nn.Conv3d(out_chan, out_chan, kernel_size=1)
         self.norm1 = nn.BatchNorm3d(out_chan)
         self.norm2 = nn.BatchNorm3d(out_chan)
         self.relu = nn.PReLU()
 
     def forward(self, x):
         shortcut = x
-        mix1 = self.mix1(x)
+        mix1 = self.conv1(self.mix1(x))
         mix2 = self.mix2(mix1)
-        att_map = F.sigmoid(self.conv(mix2))
+        att_map = F.sigmoid(self.conv2(mix2))
         out = self.norm1(x*att_map) + self.norm2(shortcut)
         return self.relu(out), att_map
 
