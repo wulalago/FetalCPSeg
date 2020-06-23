@@ -36,6 +36,7 @@ Visualization of the cortical surface error maps.
 
 ## Relevant Resource
 The relevant code can be also found at https://github.com/bchimagine  
+If you have any question, please be free to contact Prof. Ali Gholipour (ali.gholipour@childrens.harvard.edu) or Mr. Haoran Dou (dhr9936@gmail.com).
 
 ## Citation  
 If this work is helpful for you, please cite our paper as follow:   
