@@ -3,6 +3,7 @@ import glob
 
 import nibabel as nib
 import numpy as np
+import random
 
 import torch
 from torch.utils.data import Dataset
@@ -45,7 +46,7 @@ def get_list(dir_path):
     train_num = round(len(dict_list)*train_ratio)
     val_num = round(len(dict_list)*val_ratio)
 
-    train_list = dict_list[:train_num] + dict_list[:train_num]
+    train_list = dict_list[:train_num]
     val_list = dict_list[train_num:val_num]
     test_list = dict_list[val_num:]
     print("Finished! Train:{} Val:{} Test:{}".format(len(train_list), len(val_list), len(test_list)))
