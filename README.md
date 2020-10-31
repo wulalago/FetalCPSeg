@@ -39,7 +39,7 @@ The relevant code can be also found at https://github.com/bchimagine
 If you have any question, please be free to contact Prof. Ali Gholipour (ali.gholipour@childrens.harvard.edu) or Mr. Haoran Dou (dhr9936@gmail.com).
 
 ## Citation  
-If this work is helpful for you, please cite our paper as follow:   
+If this work is helpful for you, please cite our paper as follows:   
 ```
 @article{dou2020deep,
   title={A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI},
