@@ -74,13 +74,57 @@ class MixBlock(nn.Module):
         k7 = self.bn7(self.conv7(x))
         return self.nonlinear(torch.cat((k1, k3, k5, k7), dim=1))
 
+def _SplitChannels(channels, num_groups):
+    split_channels = [channels//num_groups for _ in range(num_groups)]
+    split_channels[0] += channels - sum(split_channels)
+    return split_channels
+
+
+class FastMixBlock(nn.Module):
+    """
+    modified from https://github.com/romulus0914/MixNet-PyTorch/blob/master/mixnet.py
+    """
+    def __init__(self, in_chan, out_chan):
+        super(FastMixBlock, self).__init__()
+        kernel_size = [1, 3, 5, 7]
+        self.num_groups = len(kernel_size)
+        self.split_in_channels = _SplitChannels(in_chan, self.num_groups)
+        self.split_out_channels = _SplitChannels(out_chan, self.num_groups)
+
+        self.grouped_conv = nn.ModuleList()
+        for i in range(self.num_groups):
+            self.grouped_conv.append(
+                nn.Sequential(
+                    nn.Conv2d(
+                        self.split_in_channels[i],
+                        self.split_out_channels[i],
+                        kernel_size[i],
+                        stride=1,
+                        padding=(kernel_size[i] - 1) // 2,
+                        bias=True
+                    ),
+                    nn.BatchNorm3d(self.split_out_channels[i]),
+                    nn.PReLU()
+                )
+            )
+
+    def forward(self, x):
+        if self.num_groups == 1:
+            return self.grouped_conv[0](x)
+
+        x_split = torch.split(x, self.split_in_channels, dim=1)
+        x = [conv(t) for conv, t in zip(self.grouped_conv, x_split)]
+        x = torch.cat(x, dim=1)
+
+        return x
+    
 
 class Attention(nn.Module):
     def __init__(self, in_chan, out_chan):
         super(Attention, self).__init__()
-        self.mix1 = MixBlock(in_chan, out_chan)
+        self.mix1 = FastMixBlock(in_chan, out_chan)
         self.conv1 = nn.Conv3d(out_chan, out_chan, kernel_size=1)
-        self.mix2 = MixBlock(out_chan, out_chan)
+        self.mix2 = FastMixBlock(out_chan, out_chan)
         self.conv2 = nn.Conv3d(out_chan, out_chan, kernel_size=1)
         self.norm1 = nn.BatchNorm3d(out_chan)
         self.norm2 = nn.BatchNorm3d(out_chan)
