@@ -95,7 +95,7 @@ class FastMixBlock(nn.Module):
         for i in range(self.num_groups):
             self.grouped_conv.append(
                 nn.Sequential(
-                    nn.Conv2d(
+                    nn.Conv3d(
                         self.split_in_channels[i],
                         self.split_out_channels[i],
                         kernel_size[i],
