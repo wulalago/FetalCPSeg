@@ -2,8 +2,8 @@
 This repository is the implementation of the MixAttNet for cortical plate segmentation by Haoran Dou during his internship in Computational Radiology Lab at Boston Children's Hospital.
 
 **A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI.**  
-*Haoran Dou, Davood Karimi, Caitlin K. Rollins, Cynthia M. Ortinau, Lana Vasung, Clemente Velasco-Annis, Abdelhakim Ouaalam, Xin Yang, Dong Ni, Ali Gholipour.*   
-IEEE Transactions on Medical Imaging. [[ArXiv]](https://arxiv.org/abs/2004.12847)  
+*Haoran Dou, Davood Karimi, Caitlin K. Rollins, Cynthia M. Ortinau, Lana Vasung, Clemente Velasco-Annis, Abdelhakim Ouaalam, Xin Yang, Dong Ni, and Ali Gholipour.*   
+IEEE Transactions on Medical Imaging, 2020. [[Paper]](https://ieeexplore.ieee.org/document/9303459) [[arXiv]](https://arxiv.org/abs/2004.12847)  
 
 ![framework](img/framework.png)  
 
@@ -41,11 +41,13 @@ If you have any question, please be free to contact Prof. Ali Gholipour (ali.gho
 ## Citation  
 If this work is helpful for you, please cite our paper as follows:   
 ```
-@article{dou2020deep,
-  title={A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI},
-  author={Haoran Dou and Davood Karimi and Caitlin K. Rollins and Cynthia M. Ortinau and Lana Vasung and Clemente Velasco-Annis and Abdelhakim Ouaalam and Xin Yang and Dong Ni and Ali Gholipour},
-  journal={ArXiv},
+@ARTICLE{9303459,
+  author={H. {Dou} and D. {Karimi} and C. K. {Rollins} and C. M. {Ortinau} and L. {Vasung} and C. {Velasco-Annis} and A. {Ouaalam} and X. {Yang} and D. {Ni} and A. {Gholipour}},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI}, 
   year={2020},
-  volume={abs/2004.12847}
-}
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TMI.2020.3046579}}
 ```
