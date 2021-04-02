@@ -45,9 +45,9 @@ If this work is helpful for you, please cite our paper as follows:
   author={H. {Dou} and D. {Karimi} and C. K. {Rollins} and C. M. {Ortinau} and L. {Vasung} and C. {Velasco-Annis} and A. {Ouaalam} and X. {Yang} and D. {Ni} and A. {Gholipour}},
   journal={IEEE Transactions on Medical Imaging}, 
   title={A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI}, 
-  year={2020},
-  volume={},
-  number={},
-  pages={1-1},
+  year={2021},
+  volume={40},
+  number={4},
+  pages={1123-1133},
   doi={10.1109/TMI.2020.3046579}}
 ```
