@@ -3,7 +3,7 @@ This repository is the implementation of the MixAttNet for cortical plate segmen
 
 **A Deep Attentive Convolutional Neural Network for Automatic Cortical Plate Segmentation in Fetal MRI.**  
 *Haoran Dou, Davood Karimi, Caitlin K. Rollins, Cynthia M. Ortinau, Lana Vasung, Clemente Velasco-Annis, Abdelhakim Ouaalam, Xin Yang, Dong Ni, and Ali Gholipour.*   
-IEEE Transactions on Medical Imaging, 2020. [[Paper]](https://ieeexplore.ieee.org/document/9303459) [[arXiv]](https://arxiv.org/pdf/2004.12847v2.pdf)  
+IEEE Transactions on Medical Imaging, 2021. [[Paper]](https://ieeexplore.ieee.org/document/9303459) [[arXiv]](https://arxiv.org/pdf/2004.12847.pdf)  
 
 ![framework](img/framework.png)  
 
